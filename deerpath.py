@@ -317,14 +317,14 @@ class LoadCities:
 
                 best_dist = sys.maxsize
                 previous_city = dict_path[place - 1]['Path']
-                next_city = dict_path[place]['Path']
                 best_city = sys.maxsize  # We already know we have more than one
+
 
                 # Selection logic goes here
                 for city in select_cities:
                     # greedy without much more regard
                     new_dist = dist_city(int(previous_city), int(city), dict_cities)
-                    new_dist = new_dist + dist_city(int(city), int(next_city), dict_cities)
+
                     if new_dist < best_dist:
                         best_city = city
                         best_dist = new_dist
