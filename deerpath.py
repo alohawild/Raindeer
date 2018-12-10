@@ -278,8 +278,10 @@ class LoadCities:
             df_focus['Used'] = 0
             # Create two dictionaries for prime and not prime
             # Dictionaries are fast and pre-sorted
-            df_prime = df_focus.query('Prime == True')
-            df_not = df_focus.query('Prime != True & CityId != 0') # Do not include Northpole again
+            #df_prime = df_focus.query('Prime == True')
+            df_prime = df_focus.query('Prime == 1234')
+            #df_not = df_focus.query('Prime != True & CityId != 0') # Do not include Northpole again
+            df_not = df_focus.query('CityId != 0')  # Do not include Northpole again
             df_prime = df_prime.filter(['CityId', 'DistF', 'Used'], axis=1)
             df_prime.sort_values(by=['DistF', 'CityId'], axis=0,
                            ascending=True, inplace=True, kind='quicksort', na_position='last')
